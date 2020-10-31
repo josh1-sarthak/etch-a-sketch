@@ -1,0 +1,20 @@
+#container {
+    margin: auto;
+    width: 500px;
+    height: 500px;
+    border:10px solid gray;
+}
+
+.square {
+    border: 1px solid transparent;
+    padding: 10px;
+    margin: 1px;
+    background-color: black;
+
+}
+
+.active {
+    background-color: white;
+}
+
+
