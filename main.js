@@ -51,6 +51,7 @@ function blackPen(){
 function colorPen() {
    let boxes=document.querySelectorAll(".square");
    boxes.forEach((box) => {
+      box.classList.remove('active');
       box.addEventListener("mouseover", (e) => {
             let letters= "0123456789ABCDEF";
             let color = '#';
