@@ -7,4 +7,4 @@ color button allow us to use colors inside the palette
 
 ## Skills Demonstrated
 - CSS grids
-- DOM manipulation - event listeners
+- DOM manipulation - event listeners and Query Selectors

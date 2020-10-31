@@ -6,15 +6,16 @@
 }
 
 .square {
-    border: 1px solid transparent;
+    border: 1px solid black;
     padding: 10px;
     margin: 1px;
-    background-color: black;
+    background-color: white;
 
 }
 
 .active {
-    background-color: white;
+    background-color: black;
 }
+
 
 
