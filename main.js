@@ -3,13 +3,19 @@ const container = document.querySelector("#container");
 generateGrid(16);
 
 
+
 let resetbtn= document.querySelector('#reset'); //resetbtn -> clearGrid -> generateGrid 
 let blackbtn = document.querySelector('#black'); //blackbtn -> blackPen
 let colorbtn= document.querySelector('#color'); //colorbtn -> colorPen 
 
 resetbtn.addEventListener('click', clearGrid); 
-blackbtn.addEventListener('click', blackPen);
-colorbtn.addEventListener('click', colorPen); 
+blackbtn.addEventListener('click', (e) =>{
+   blackPen();
+});
+
+colorbtn.addEventListener('click', (e) => {
+   colorPen();
+}); 
 
 
 function generateGrid(items){
@@ -39,28 +45,33 @@ function clearGrid() {
 
 }
 
-function blackPen(){
-      let boxes = document.querySelectorAll(".square"); // why is there a need to create a square class for each div inside container div? so that active class doesn't get applied to all div's at once. so, EITHER the inner elements shud be different from container to use directly - like buttons for eg, OR need to use a class for selecting bunch of elements
+const blackPen = () => {
+   let boxes = document.querySelectorAll(".square"); // why is there a need to create a square class for each div inside container div? so that active class doesn't get applied to all div's at once. so, EITHER the inner elements shud be different from container to use directly - like buttons for eg, OR need to use a class for selecting bunch of elements
       boxes.forEach((box) => {
-      box.addEventListener("mouseover", () => {
-         box.classList.add('active');
-      });
+      box.addEventListener("mouseover", (e) => {
+         addClass(e.target);
    });
+});
 }
    
-function colorPen() {
-   let boxes=document.querySelectorAll(".square");
+const colorPen= () => {
+   let boxes = document.querySelectorAll(".square"); // why is there a need to create a square class for each div inside container div? so that active class doesn't get applied to all div's at once. so, EITHER the inner elements shud be different from container to use directly - like buttons for eg, OR need to use a class for selecting bunch of elements
    boxes.forEach((box) => {
-      box.classList.remove('active');
       box.addEventListener("mouseover", (e) => {
-            let letters= "0123456789ABCDEF";
-            let color = '#';
-            for (let i=0; i<6; i++){
-               color+= letters[Math.floor(Math.random()*16)];
-            }
-            e.target.style.backgroundColor=color;
+          random(e.target);
       }); 
 });
+}
+
+const addClass = (holder) => holder.classList.add('active');
+
+const random =(holder) => {
+      let letters= "0123456789ABCDEF";
+      let color = '#';
+      for (let i=0; i<6; i++){
+            color+= letters[Math.floor(Math.random()*16)];
+      }
+      holder.style.backgroundColor=color;
 }
 
 
